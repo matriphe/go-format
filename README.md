@@ -1,8 +1,8 @@
 # Go Format
 
-A helper to format date time in Go.
+A helper to format and convert many things in Go.
 
-I'm fed up with repetitive formatting weird Go date format 🙄, so I decided to create a package to not repeat myself.
+I'm fed up with the repetitive formatting of many things, especially the weird Go date format 🙄, so I decided to create a package to not repeat myself.
 
 ## Install
 
@@ -40,6 +40,27 @@ func main()  {
 	fmt.Println(theTime.Format(datetime.ISODateTime)) // print '2023-03-05 18:45:21'
 	fmt.Println(datetime.ToISODateTime(theTime)) // print '2023-03-05 18:45:21'
 	_, _ = datetime.FromISODateTime("2023-03-05 18:45:21") // parse to time.Time
+}
+```
+
+### Wind
+
+This package converts wind [direction in degree to cardinal directional](http://snowfence.umn.edu/Components/winddirectionanddegrees.htm).
+
+The reference of this function is from [Stackoverflow](https://stackoverflow.com/a/7490772/3460840).
+
+```go
+package main
+
+import (
+	"fmt"
+	
+	"github.com/matriphe/go-format/wind"
+)
+
+func main()  {
+	fmt.Println(wind.Direction(90)) // print 'E'
+	fmt.Println(wind.Direction(13)) // print 'NNE'
 }
 ```
 
